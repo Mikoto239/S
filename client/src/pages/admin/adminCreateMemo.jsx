@@ -109,7 +109,7 @@ const AdminCreateMemo = () => {
         read: false,
       }));
 
-      const response = await fetch('/api/getme', {
+      const response = await fetch('https://cotmemo.onrender.com/api/getme', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -141,7 +141,7 @@ const AdminCreateMemo = () => {
         // formData.append('subject', subject);
         // formData.append('message', message);
   
-        const { data } = await axios.post('/api/memo/uploads', formData, {
+        const { data } = await axios.post('https://cotmemo.onrender.com/api/memo/uploads', formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 
@@ -169,7 +169,7 @@ const AdminCreateMemo = () => {
 
 
     if (value === 'BSIT') {
-      axios.get('/api/getallbsit')
+      axios.get('https://cotmemo.onrender.com/api/getallbsit')
         .then((response) => {
 
           const allUsers = response.data.bsituser;
@@ -186,7 +186,7 @@ const AdminCreateMemo = () => {
           toast.error('Error fetching users');
         });
     } else if (value === 'BSAT') {
-      axios.get('/api/getallbsat')
+      axios.get('https://cotmemo.onrender.com/api/getallbsat')
         .then((response) => {
 
           const allUsers = response.data.bsatuser;
@@ -204,7 +204,7 @@ const AdminCreateMemo = () => {
 
         });
     } else if (value === 'BSFT') {
-      axios.get('/api/getallbsft')
+      axios.get('https://cotmemo.onrender.com/api/getallbsft')
         .then((response) => {
 
           const allUsers = response.data.bsftuser;
@@ -223,7 +223,7 @@ const AdminCreateMemo = () => {
         });
     }
     else if (value === 'BSET') {
-      axios.get('/api/getallbset')
+      axios.get('https://cotmemo.onrender.com/api/getallbset')
         .then((response) => {
           const allUsers = response.data.bsetuser;
 
@@ -239,7 +239,7 @@ const AdminCreateMemo = () => {
 
         });
     } else if (value === 'ALL') {
-      axios.get('/api/getallusers', {token})
+      axios.get('https://cotmemo.onrender.com/api/getallusers', {token})
     .then((response) => {
         const allUsers = response.data.users;
     
@@ -251,7 +251,7 @@ const AdminCreateMemo = () => {
 
         });
     } else if (value === 'ROLE') {
-      axios.get('/api/role')
+      axios.get('https://cotmemo.onrender.com/api/role')
         .then((response) => {
           const allUsers = response.data.baseonrole;
 
@@ -272,7 +272,7 @@ const AdminCreateMemo = () => {
     const fetchData = async () => {
       try {
         // Fetch current user details
-        const response = await fetch('/api/getme', {
+        const response = await fetch('https://cotmemo.onrender.com/api/getme', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -283,7 +283,7 @@ const AdminCreateMemo = () => {
           const senderEmail = result.user.email;
 
           // Fetch all users
-          const usersResponse = await axios.get('/api/getallusers');
+          const usersResponse = await axios.get('https://cotmemo.onrender.com/api/getallusers');
           const allUsers = usersResponse.data.users;
 
           // Filter out the current user from the list
