@@ -44,7 +44,7 @@ const AdminRecieveMemoDetails = ({ match }) => {
     const fetchMemoDetails = async () => {
       try {
 
-        const getme = await axios.get('/api/getme', {
+        const getme = await axios.get('https://cotmemogelc.vercel.app/api/getme', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -52,10 +52,10 @@ const AdminRecieveMemoDetails = ({ match }) => {
   
         const myemail = getme.data.user.email;
   
-        const response = await axios.get(`/api/memo/details/${memoId}?email=${myemail}`);
+        const response = await axios.get(`https://cotmemogelc.vercel.app/api/memo/details/${memoId}?email=${myemail}`);
         setMemoDetails(response.data.memo);
        
-        const res = await axios.get(`/api/memo/pdfdetails/${memoId}?email=${myemail}`, {
+        const res = await axios.get(`https://cotmemogelc.vercel.app/api/memo/pdfdetails/${memoId}?email=${myemail}`, {
           responseType: 'blob', // Specify the response type as blob
         });
     
@@ -63,7 +63,7 @@ const AdminRecieveMemoDetails = ({ match }) => {
         setPdfUrl(pdfUrl);
         // Correct acknowledgment request
         const acknowledgmentResponse = await axios.post(
-          `/api/Iacknowledge/${memoId}`,
+          `https://cotmemogelc.vercel.app/api/Iacknowledge/${memoId}`,
           { email: myemail }
         );
   
@@ -83,7 +83,7 @@ const AdminRecieveMemoDetails = ({ match }) => {
     let name;
   
     try {
-      const response = await axios.get('/api/getme', {
+      const response = await axios.get('https://cotmemogelc.vercel.app/api/getme', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -94,7 +94,7 @@ const AdminRecieveMemoDetails = ({ match }) => {
         name = response.data.user.name;
         
   
-        const acknowledge = await axios.post(`/api/memo/acknowledge/${memoId}`, { email,name});
+        const acknowledge = await axios.post(`https://cotmemogelc.vercel.app/api/memo/acknowledge/${memoId}`, { email,name});
   
         if (acknowledge.status === 200) {
           setIsAcknowledged(true);
