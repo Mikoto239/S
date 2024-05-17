@@ -33,7 +33,7 @@ const AdminReport = () => {
 
   const handleDate = async (month, year) => {
     try {
-      const getme = await axios.get('/api/getme', {
+      const getme = await axios.get('https://cotmemo.onrender.com/api/getme', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -41,7 +41,7 @@ const AdminReport = () => {
 
       const email = getme.data.user.email;
 
-      const Allreport = await axios.post('/api/allreport', {
+      const Allreport = await axios.post('https://cotmemo.onrender.com/api/allreport', {
         email,
         month,
         year,
