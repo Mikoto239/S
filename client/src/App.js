@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // Import components for different roles
 import Login from './pages/login';
 import Signup from './pages/signup';
-import AdminDashboard from './pages/admin/Admind';
+import AdminDashboard from './pages/admin/admind';
 import SecretaryDashboard from './pages/secretary/SecretaryDashboard';
 import UserDashboard from './pages/user/UserDashboard';
 import UnregisterDashboard from './pages/user/UnregisterDashboard';
