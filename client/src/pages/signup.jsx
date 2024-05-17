@@ -12,7 +12,7 @@ const Signup = ({ history }) => {
   const [captchaisdone, setCaptchaisdone] = useState(false);
   const [captchaToken, setcaptchaToken] = useState(''); // Corrected variable name
 
-  const publickey = "6LevtxwpAAAAAFR89iASdG-0bPdUqODMhht_QZRv";
+  const publickey = "6Lc3aeApAAAAADx7u8X3oPAnhRvv-JXwDXIgYdGO";
   const [formgoogle, setFormgoogle] = useState({
     email: '',
     name: '',
