@@ -37,21 +37,21 @@ const SecretaryMemoDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const getMeResponse = await axios.get('https://cotmemogelc.vercel.app/api/getme', {
+        const getMeResponse = await axios.get('https://cotmemo.onrender.com/api/getme', {
           headers: {
             Authorization: `Bearer ${token}`,
           }
         });
         const userEmail = getMeResponse.data.user.email;
   
-        const response = await axios.get(`https://cotmemogelc.vercel.app/api/memo/created/${memoId}?email=${userEmail}`, {
+        const response = await axios.get(`https://cotmemo.onrender.com/api/memo/created/${memoId}?email=${userEmail}`, {
           responseType: 'blob', // Specify the response type as blob
         });
     
         const pdfUrl = URL.createObjectURL(response.data);
         setPdfUrl(pdfUrl);
 
-        const memodetails = await axios.get(`https://cotmemogelc.vercel.app/api/memo/created_details/${memoId}?email=${userEmail}`);
+        const memodetails = await axios.get(`https://cotmemo.onrender.com/api/memo/created_details/${memoId}?email=${userEmail}`);
         const details = memodetails.data.memo;
       
         setMemoDetails(details);
