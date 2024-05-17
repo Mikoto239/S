@@ -16,7 +16,7 @@ const Unregisteruserdashboard = () => {
   
 
   useEffect(() => {
-    fetch('/api/details', {
+    fetch('https://cotmemogelc.vercel.app/api/details', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -40,7 +40,7 @@ const Unregisteruserdashboard = () => {
       return;
     }
     try {
-      const response = await axios.post('/api/verifycode', {
+      const response = await axios.post('https://cotmemogelc.vercel.app/api/verifycode', {
         code: verificationCode,
       });
   
