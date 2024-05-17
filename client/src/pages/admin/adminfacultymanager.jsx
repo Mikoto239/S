@@ -79,7 +79,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
     console.log(value);
     
     if (value === 'BSIT') {
-      axios.get('https://cotmemogelc.vercel.app/api/getallbsit')
+      axios.get('https://cotmemo.onrender.com/api/getallbsit')
        .then((response)=>{
         usersetProfile(response.data.bsituser);
         setLoading(false);
@@ -91,7 +91,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
         toast.error('Error fetching users');
       });
     } else if (value === 'BSAT') {
-      axios.get('https://cotmemogelc.vercel.app/api/getallbsat')
+      axios.get('https://cotmemo.onrender.com/api/getallbsat')
         .then((response) => {
           usersetProfile(response.data.bsatuser);
           setLoading(false);
@@ -103,7 +103,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
           toast.error('Error fetching users');
         });
     } else if (value === 'BSFT') {
-       axios.get('https://cotmemogelc.vercel.app/api/getallbsft')
+       axios.get('https://cotmemo.onrender.com/api/getallbsft')
        .then((response)=>{
         usersetProfile(response.data.bsftuser);
         setLoading(false);
@@ -116,7 +116,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
       });
     }
       else if (value === 'BSET') {
-        axios.get('https://cotmemogelc.vercel.app/api/getallbset')
+        axios.get('https://cotmemo.onrender.com/api/getallbset')
         .then((response)=>{
          usersetProfile(response.data.bsetuser);
          setLoading(false);
@@ -128,7 +128,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
          toast.error('Error fetching users');
        });
     } else if (value === 'ALL') {
-      axios.get('https://cotmemogelc.vercel.app/api/getallusers')
+      axios.get('https://cotmemo.onrender.com/api/getallusers')
       .then((response)=>{
         usersetProfile(response.data.users);
         setLoading(false);
@@ -139,7 +139,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
         toast.error('Error fetching users');
       });
     } else if (value === 'ROLE') {
-       axios.get('https://cotmemogelc.vercel.app/api/role')
+       axios.get('https://cotmemo.onrender.com/api/role')
        .then((response)=>{
          usersetProfile(response.data.baseonrole);
         setLoading(false);
@@ -156,7 +156,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
 
 
   useEffect(() => {
-    axios.get('https://cotmemogelc.vercel.app/api/getallusers', {
+    axios.get('hhttps://cotmemo.onrender.com/api/getallusers', {
         headers: {
             Authorization: `Bearer ${token}`
         },token
@@ -178,7 +178,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
 
   const handleConfirmDeleteuser = async (userrole) => {
     try {
-      const getMeResponse = await fetch('https://cotmemogelc.vercel.app/api/getme', {
+      const getMeResponse = await fetch('https://cotmemo.onrender.com/api/getme', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -217,13 +217,13 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
     try {
      
   
-      await axios.post('https://cotmemogelc.vercel.app/api/updateuserrole', {
+      await axios.post('https://cotmemo.onrender.com/api/updateuserrole', {
         email: editedUser.email,
         role: updatedrole
       });
   
       // Refresh the user profiles after updating the department
-      const response = await axios.get('https://cotmemogelc.vercel.app/api/getallusers');
+      const response = await axios.get('https://cotmemo.onrender.com/api/getallusers');
   
       // Find the updated user in the array
       const updatedUser = response.data.users.find(user => user.email === editedUser.email);
