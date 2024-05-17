@@ -10,7 +10,7 @@ const PrivateRouteUser = ({ component: Component, ...rest }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://cotmemogelc.vercel.app/api/getme', {
+        const response = await axios.get('https://cotmemo.onrender.com/api/getme', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
