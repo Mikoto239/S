@@ -19,7 +19,7 @@ const Userdetails = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch('https://cotmemogelc.vercel.app/api/details', {
+    fetch('https://cotmemo.onrender.com/api/details', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
