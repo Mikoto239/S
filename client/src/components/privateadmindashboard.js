@@ -11,7 +11,7 @@ const PrivateRouteAdmin = ({ component: Component, ...rest }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/getme', {
+        const response = await axios.get('https://cotmemogelc.vercel.app/api/getme', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
