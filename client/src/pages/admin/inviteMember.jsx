@@ -52,7 +52,7 @@ const InviteMember = () => {
   };
 
   useEffect(() => {
-    fetch('/api/details', {
+    fetch('https://cotmemogelc.vercel.app/api/details', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -73,7 +73,7 @@ const InviteMember = () => {
     const code = generateCode();
    
     try {
-      const { data } = await axios.post('/api/invite', {
+      const { data } = await axios.post('https://cotmemogelc.vercel.app/api/invite', {
         sender: email,
         recipient: recipient,
         subject: "Invitation From COT Department",
