@@ -60,7 +60,7 @@ const Usercalendar = ({history}) => {
     const formattedDate = `${year}-${month}-${day}`;
   
     try {
-      const response = await fetch('/api/getme', {
+      const response = await fetch('https://cotmemogelc.vercel.app/api/getme', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -70,11 +70,11 @@ const Usercalendar = ({history}) => {
       const myemail = result.user.email;
   
       const [memoResponse, eventResponse] = await Promise.all([
-        axios.post("/api/memo/send-and-recieve", {
+        axios.post("https://cotmemogelc.vercel.app/api/memo/send-and-recieve", {
           date: formattedDate,
           email: myemail,
         }),
-        axios.post("/api/getevent", { useremail: myemail, date: formattedDate }),
+        axios.post("https://cotmemogelc.vercel.app/api/getevent", { useremail: myemail, date: formattedDate }),
       ]);
   
       const memoData = memoResponse.data.memo || [];
@@ -137,7 +137,7 @@ const Usercalendar = ({history}) => {
   useEffect(() => {
     const fetchEventsForCurrentMonth = async () => {
       try {
-        const response = await fetch('/api/getme', {
+        const response = await fetch('https://cotmemogelc.vercel.app/api/getme', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -213,7 +213,7 @@ const Usercalendar = ({history}) => {
   const handleEventClick = async (event, memoId) => {
      
   if(event.type === 'received'){
-      const response = await axios.get('/api/getme', {
+      const response = await axios.get('https://cotmemogelc.vercel.app/api/getme', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -221,7 +221,7 @@ const Usercalendar = ({history}) => {
 
       if (response.status === 200 && response.data) {
         const email = response.data.user.email;
-        const read = await axios.post('/api/memo/read', { email, memoId });
+        const read = await axios.post('https://cotmemogelc.vercel.app/api/memo/read', { email, memoId });
         history.push(`/user/memo/${memoId}`);
       }
     } else{
@@ -238,7 +238,7 @@ const Usercalendar = ({history}) => {
 
 
   useEffect(() => {
-    fetch('/api/details', {
+    fetch('https://cotmemogelc.vercel.app/api/details', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -308,7 +308,7 @@ const Usercalendar = ({history}) => {
               'end': { 'dateTime': new Date(endDateTime).toISOString(), 'timeZone': 'Asia/Manila' }
             };
 
-            const res = await fetch('/api/getme', {
+            const res = await fetch('https://cotmemogelc.vercel.app/api/getme', {
               headers: {
                 'Authorization': `Bearer ${token}`,
               },
@@ -317,7 +317,7 @@ const Usercalendar = ({history}) => {
             const result = await res.json();
             const useremail = result.user.email;
         
-               axios.post('/api/create_event',{useremail,summary,description,startDateTime,endDateTime}) 
+               axios.post('https://cotmemogelc.vercel.app/api/create_event',{useremail,summary,description,startDateTime,endDateTime}) 
     
            
             const response = await fetch("https://www.googleapis.com/calendar/v3/calendars/primary/events", {
