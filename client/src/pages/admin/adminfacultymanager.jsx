@@ -156,7 +156,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
 
 
   useEffect(() => {
-    axios.get('hhttps://cotmemo.onrender.com/api/getallusers', {
+    axios.get('https://cotmemo.onrender.com/api/getallusers', {
         headers: {
             Authorization: `Bearer ${token}`
         },token
@@ -191,7 +191,7 @@ user.name.toLowerCase().includes(searchQuery.toLowerCase())
           toast.error('You cannot delete your own account!');
         } else {
           // User is not trying to delete their own account, proceed with deletion
-          await axios.post('/api/deletethisuser', { email: editedUser.email });
+          await axios.post('https://cotmemo.onrender.com/api/deletethisuser', { email: editedUser.email });
   
           usersetProfile((prevProfiles) =>
             prevProfiles.filter((user) => user.email !== editedUser.email)
