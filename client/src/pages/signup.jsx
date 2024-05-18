@@ -33,7 +33,7 @@ const Signup = ({ history }) => {
   
     try {
       if (email) {
-        const res = await axios.post('https://cotmemogelc.vercel.app/api/signup', {
+        const res = await axios.post('https://cotmemo.onrender.com/api/signup', {
           email: email,
           name: userObject.name,
           picture: userObject.picture,
@@ -49,13 +49,13 @@ const Signup = ({ history }) => {
             console.log('Signup successful. Token:', tokenFromBackend);
             localStorage.setItem('token', tokenFromBackend);
   
-            const { data } = await axios.post('https://cotmemogelc.vercel.app/api/login', {
+            const { data } = await axios.post('https://cotmemo.onrender.com/api/login', {
               email,
               token: token,
             });
   
             if (data.success === true) {
-              const response = await fetch('https://cotmemogelc.vercel.app/api/getme', {
+              const response = await fetch('https://cotmemo.onrender.com/api/getme', {
                 headers: {
                   'Authorization': `Bearer ${data.token}`,
                 },
